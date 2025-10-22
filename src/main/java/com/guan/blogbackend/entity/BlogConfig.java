@@ -2,6 +2,10 @@ package com.guan.blogbackend.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Data
 @Entity
@@ -17,4 +21,12 @@ public class BlogConfig {
     
     @Column(name = "config_value", columnDefinition = "text")
     private String configValue;
+
+    @Configuration
+    public class SecurityConfig {
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+            return new BCryptPasswordEncoder();
+        }
+    }
 }
