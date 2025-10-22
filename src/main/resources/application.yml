@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/blogbackend?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: Guan0815@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA ??
+  jpa:
+    hibernate:
+      ddl-auto: update  # ?? Hibernate ????????
+    database-platform: org.hibernate.dialect.MySQL8Dialect  # ?? MySQL8 Dialect
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
